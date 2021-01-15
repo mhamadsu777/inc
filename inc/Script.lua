@@ -359,7 +359,7 @@ end
 
 if MsgText[1] == "تاك للكل" then 
 if not msg.Admin then return "📛*│* هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n🚶" end
-return ownerlist(msg) .. GetListAdmin(msg) .. whitelist(msg)
+return TagAll(msg)
 end
 
 if MsgText[1] == "المنشى الاساسي" then 
@@ -1991,8 +1991,8 @@ end
 if (MsgText[1]== "ايدي" or MsgText[1]=="ايديي🆔") and msg.type == "pv" then return  "\n👨🏻‍💻 | اهلن عزيزي المطور ايديك هوه ⏬\n\n🧟‍♂│"..msg.sender_user_id_.."\n"  end
 
 if MsgText[1]== "قناة السورس 📡" and msg.type == "pv" then
-local inline = {{{text="⚜│قنآهہ‏‏ آلسـورس ضـغـط هـنـآ ",url="t.me/@uop70"}}}
-send_key(msg.sender_user_id_,'  [⚜│قناة سورس : مـاكـس](t.me/@uop70)',nil,inline,msg.id_)
+local inline = {{{text="⚜│قنآهہ‏‏ آلسـورس ضـغـط هـنـآ ",url="t.me/modzx_dev"}}}
+send_key(msg.sender_user_id_,'  [⚜│قناة سورس : مونستر](t.me/modzx_dev)',nil,inline,msg.id_)
 return false
 end
 
@@ -3194,12 +3194,6 @@ end)
 end
 end 
 end 
-
-if MsgText[1] == "تاك للكل" then 
-if not msg.Admin then return "📪¦ هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n" end
-if not redis:get(Monster.."lock_takkl"..msg.chat_id_) then  return "📛*¦* الامر معطل من قبل الادراة" end 
-return TagAll(msg) 
-end
 
 if msg.adduser and msg.adduser == our_id and redis:get(monster..':WELCOME_BOT') then
 sendPhoto(msg.chat_id_,msg.id_,redis:get(monster..':WELCOME_BOT'),[[⚜╿اهلا انآ بوت آسـمـي ]]..redis:get(monster..':NameBot:')..[[ ✓
@@ -4499,7 +4493,6 @@ monster = {
 '^(تنزيل منشى اساسي) (@[%a%d_]+)$',
 '^(تنزيل منشئ اساسي) (@[%a%d_]+)$',
 '^(رفع منشى)$',
-'^(تاك للكل)$',
 '^(رفع منشئ)$',
 '^(رفع منشئ) (@[%a%d_]+)$',
 '^(رفع منشى) (@[%a%d_]+)$',
